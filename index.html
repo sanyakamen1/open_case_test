@@ -80,7 +80,6 @@
     </div>
     <script>
     const tg = window.Telegram.WebApp;
-    const botToken = '7231986442:AAEX51aRLCHANFN-j8SVQilGh1QnecNaAk8';
         
     // Функция для получения параметра из URL
     function getParameterByName(name, url = window.location.href) {
@@ -92,11 +91,40 @@
     }
         
     const cash = getParameterByName('cash');
-    const chatId = getParameterByName('chat_id');
-    alert (chatId.toString());
+    const chatId = getParameterByName('chat_id').toString();
+    const botToken = getParameterByName('token');
 
     // Приложение на полный экран
     tg.expand();
+
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Message sent:", data);
+                    // Отправляем команду на очистку клавиатуры
+                    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: "/clear_keyboard"
+                        })
+                    });
+                })
+                .catch(error => {
+                    console.error("Error sending message:", error);
+                });
 
     function getCash() {
             let box_el = document.getElementById("mainImage");
