@@ -100,33 +100,22 @@
     alert (botToken);
 
     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        chat_id: chatId,
-                        text: message
-                    })
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: 'Открываем кейс...'
                 })
-                .then(response => response.json())
-                .then(data => {
-                    alert ('message sent');
-                    // Отправляем команду на очистку клавиатуры
-                    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            chat_id: chatId,
-                            text: "Открываем кейс..."
-                        })
-                    });
-                })
-                .catch(error => {
-                    console.error("Error sending message:", error);
-                });
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Message sent:", data);
+            })
+            .catch(error => {
+                console.error("Error sending message:", error);
+            });
 
     function getCash() {
             let box_el = document.getElementById("mainImage");
