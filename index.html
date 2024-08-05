@@ -91,7 +91,7 @@
     }
         
     const cash = getParameterByName('cash');
-    const chatId = getParameterByName('chat_id').toString();
+    const chatId = getParameterByName('chat_id');
     const botToken = getParameterByName('token');
 
     // Приложение на полный экран
@@ -118,7 +118,7 @@
                         },
                         body: JSON.stringify({
                             chat_id: chatId,
-                            text: "/clear_keyboard"
+                            text: "Открываем кейс..."
                         })
                     });
                 })
