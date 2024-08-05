@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Standoff 2</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        .disabled {
+            pointer-events: none;
+            opacity: 0.5; /* Сделает изображение полупрозрачным */
+        }
+        /* Стили для модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: #0f0a18;
+        }
+        .modal-content {
+            background-color: #4d3d6b;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 100%;
+            height: auto;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-button {
+            background-color: #9669ff;
+            color: white;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .modal-button:hover {
+            background-color: #45a049;
+        }
+        #modalImage {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img id="mainImage" src="./открытие кейса.jpg" alt="Closed Case" onclick="getCash()">
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Skin">
+            <button id= "modalButton" class="modal-button" onclick="closeModal()">Забрать скин</button>
+        </div>
+    </div>
+    <script>
+    const tg = window.Telegram.WebApp;
+        
+    // Функция для получения параметра из URL
+    function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            res = decodeURIComponent(results[2].replace(/\+/g, ' '))
+            return res;
+    }
+        
+    const cash = getParameterByName('cash');
+
+    // Приложение на полный экран
+    tg.expand();
+
+    function getCash() {
+            let box_el = document.getElementById("mainImage");
+            box_el.onclick = null;
+            showModal();
+        }
+
+    function showModal() {
+            const images = {
+                59: 'гифки выпадения/necromancer.gif',
+                65: 'гифки выпадения/Famas.gif',
+                60: 'гифки выпадения/AWM-Festal-Wrap.gif',
+                89: 'гифки выпадения/AKR12-Geometric.gif',
+                91: 'гифки выпадения/bubblegum.gif',
+                119: 'гифки выпадения/AKR-Tag-King.gif'
+            };
+
+            // Устанавливаем изображение в зависимости от значения cash
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = images[cash];
+            
+            const modal = document.getElementById('myModal');
+            const modalButton = document.getElementById('modalButton');
+            modalButton.textContent = `Забрать ${cash} 💸`;
+            modal.style.display = 'block';
+        }
+
+    function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+            tg.sendData(cash.toString());
+        }
+
+        // Закрываем модальное окно при клике вне его
+    window.onclick = function(event) {
+            const modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                tg.sendData(cash.toString());
+            }
+        }
+    </script>
+    
+</body>
+</html>
