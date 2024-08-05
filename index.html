@@ -94,11 +94,6 @@
     const chatId = getParameterByName('chat_id');
     const botToken = getParameterByName('token');
 
-    // Приложение на полный экран
-    tg.expand();
-
-    alert (botToken);
-
     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 method: 'POST',
                 headers: {
@@ -117,6 +112,9 @@
                 console.error("Error sending message:", error);
             });
 
+    // Приложение на полный экран
+    tg.expand();
+        
     function getCash() {
             let box_el = document.getElementById("mainImage");
             box_el.onclick = null;
