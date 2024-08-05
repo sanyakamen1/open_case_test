@@ -97,6 +97,8 @@
     // Приложение на полный экран
     tg.expand();
 
+    alert (botToken);
+
     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                     method: 'POST',
                     headers: {
@@ -109,7 +111,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log("Message sent:", data);
+                    alert ('message sent');
                     // Отправляем команду на очистку клавиатуры
                     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                         method: 'POST',
