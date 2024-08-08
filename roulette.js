@@ -1,7 +1,10 @@
 const items = [
-    "./P-90.png",
-    "./M16.png",
-    "./AK.png"
+                'гифки выпадения/necromancer.gif',
+                'гифки выпадения/Famas.gif',
+                'гифки выпадения/AWM-Festal-Wrap.gif',
+                'гифки выпадения/AKR12-Geometric.gif',
+                'гифки выпадения/bubblegum.gif',
+                'гифки выпадения/AKR-Tag-King.gif'
 ];
 
 class Roulette {
