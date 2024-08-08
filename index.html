@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Standoff 2</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="roulette.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="roulette.js"></script>
     <style>
         .disabled {
             pointer-events: none;
@@ -70,6 +72,11 @@
 <body>
     <div class="box">
         <img id="mainImage" src="./открытие кейса.jpg" alt="Closed Case" onclick="getCash()">
+        <div id="wrapper"  style="display: none">
+            <div id="roulette">
+                <div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div>
+            </div>
+        </div>
     </div>
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -91,26 +98,26 @@
     }
         
     const cash = getParameterByName('cash');
-    const chatId = getParameterByName('chat_id');
-    const botToken = getParameterByName('token');
+    // const chatId = getParameterByName('chat_id');
+    // const botToken = getParameterByName('token');
 
-    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    chat_id: chatId,
-                    text: 'Открываем кейс...'
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log("Message sent:", data);
-            })
-            .catch(error => {
-                console.error("Error sending message:", error);
-            });
+    // fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({
+    //                 chat_id: chatId,
+    //                 text: 'Открываем кейс...'
+    //             })
+    //         })
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             console.log("Message sent:", data);
+    //         })
+    //         .catch(error => {
+    //             console.error("Error sending message:", error);
+    //         });
 
     // Приложение на полный экран
     tg.expand();
@@ -118,7 +125,25 @@
     function getCash() {
             let box_el = document.getElementById("mainImage");
             box_el.onclick = null;
-            showModal();
+
+            // Отображаем анимацию рулетки
+            const img = document.getElementById('mainImage');
+            const roulette_div = document.getElementById('wrapper');
+            img.style.display = 'none';
+            roulette_div.style.display = 'block';
+
+            const roulette = new Roulette();
+            roulette.init(items);
+            const btnStart = document.getElementById("mainImage");
+
+            const value_to_index = {59: 0, 65: 1, 60: 2, 89: 3, 91: 4, 119: 5};
+
+            roulette.start(value_to_index[cash]);
+        
+            setTimeout(() => {
+                roulette_div.style.display = 'none'; // Скрываем анимацию загрузки
+                showModal();
+            }, 6300);
         }
 
     function showModal() {
