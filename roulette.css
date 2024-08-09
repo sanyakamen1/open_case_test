@@ -3,11 +3,11 @@
 }
 #wrapper {
     display: block;
-    width: calc(129px * 5);
+    width: calc(300px * 5);
     margin: 20px auto 0;
 }
 #roulette {
-    border: 3px solid #000;
+    /*border: 3px solid #000;*/
     overflow: hidden;
     height: 300px;
     white-space: nowrap;
