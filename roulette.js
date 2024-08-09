@@ -10,7 +10,7 @@ const items = [
 class Roulette {
 
     constructor() {
-        this.SIZE = 128;
+        this.SIZE = 200;
         this.LENGTH = 80;
         this.DURATION = 5000;
 
