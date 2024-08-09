@@ -9,7 +9,7 @@
 #roulette {
     border: 3px solid #000;
     overflow: hidden;
-    height: 128px;
+    height: 300px;
     white-space: nowrap;
     position: relative;
 }
@@ -17,8 +17,8 @@
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 128px;
-	height: 128px;
+	width: 300px;
+	height: 300px;
 	border: 3px solid #000;
 	content: ' ';
 	top: -3px;
