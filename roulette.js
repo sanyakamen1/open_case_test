@@ -1,10 +1,16 @@
 const items = [
-                'гифки выпадения/necromancer.gif',
-                'гифки выпадения/Famas.gif',
-                'гифки выпадения/AWM-Festal-Wrap.gif',
-                'гифки выпадения/AKR12-Geometric.gif',
-                'гифки выпадения/bubblegum.gif',
-                'гифки выпадения/AKR-Tag-King.gif'
+                // 'гифки выпадения/necromancer.gif',
+                // 'гифки выпадения/Famas.gif',
+                // 'гифки выпадения/AWM-Festal-Wrap.gif',
+                // 'гифки выпадения/AKR12-Geometric.gif',
+                // 'гифки выпадения/bubblegum.gif',
+                // 'гифки выпадения/AKR-Tag-King.gif'
+                'для рулетки/6.png',
+                'для рулетки/1.png',
+                'для рулетки/2.png',
+                'для рулетки/3.png',
+                'для рулетки/4.png',
+                'для рулетки/5.png'
 ];
 
 class Roulette {
