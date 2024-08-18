@@ -95,7 +95,7 @@ class Roulette {
         //     }
         // }
   
-      const off = (1 - this.interpolator(this.progress)) * this.SIZE * this.LENGTH;
+      const off = this.interpolator(1 - this.progress) * this.SIZE * this.LENGTH;
       const WIDTH = this.SIZE * 6;
   
       for (let i = 0; i < 6; i++) {
