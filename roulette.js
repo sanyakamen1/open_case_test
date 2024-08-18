@@ -97,8 +97,7 @@ class Roulette {
     }
 
     interpolator(val) {
-            const x = val; // Масштабируем val, чтобы оно варьировалось от 0 до 6
-            return 4 * x * (1 - x / 2) * (1 - x / 3);
+            return Math.pow(Math.sin(val * Math.PI / 2), 2.6);
     }
 
     getItem(val) {
