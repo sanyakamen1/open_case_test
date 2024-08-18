@@ -101,13 +101,9 @@ class Roulette {
           //return (-1) * (Math.pow(Math.sin((1-val) * Math.PI / 2), 4) - 1);
           //return Math.pow(0.05 / (1-val) - 0.05, 1)
       
-          // if (val < 0.25) {
-          //   return val * 1.57802;
-          // } else {
-          //     return Math.pow(0.1 / (-val-0.09) + 1.09174, 1);
-          // }
 
-          return Math.pow(0.1 / (-val-0.09) + 1.09174, 1);
+          //return Math.pow(0.1 / (-val-0.09) + 1.09174, 1);
+          return Math.pow(0.2 / (-val-0.17) + 1.17094, 1);
     }
 
     getItem(val) {
