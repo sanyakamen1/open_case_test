@@ -67,6 +67,15 @@
             width: 100%;
             object-fit: contain;
         }
+        #arrow {
+            position: absolute;
+            bottom: 20px; /* Расстояние от нижнего края экрана */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px; /* Размер стрелки */
+            color: black; /* Цвет стрелки */
+            z-index: 1000; /* Чтобы стрелка была поверх других элементов */
+        }
     </style>
 </head>
 <body>
@@ -76,6 +85,7 @@
             <div id="roulette">
                 <div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div>
             </div>
+            <div id="arrow">&#9650;</div>
     </div>
     </div>
     <div id="myModal" class="modal">
