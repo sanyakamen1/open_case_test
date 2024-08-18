@@ -103,7 +103,7 @@ class Roulette {
           if (val < 0.9) {
               return val * 4 / 9;
           } else {
-              return 0.1 / (1.1 - x) - 0.091;
+              return 0.1 / (1.092 - x) - 0.09;
     }
 
     getItem(val) {
