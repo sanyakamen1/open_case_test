@@ -97,7 +97,7 @@ class Roulette {
     }
 
     interpolator(val) {
-        const x = val * 6; // Масштабируем val, чтобы оно варьировалось от 0 до 6
+        const x = val * 1.5; // Масштабируем val, чтобы оно варьировалось от 0 до 6
 
         if (x <= 3) {
           return Math.pow(x / 3, 2); // Квадратичное увеличение от 0 до 1
