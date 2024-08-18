@@ -12,6 +12,7 @@
     height: 133px;
     white-space: nowrap;
     position: relative;
+    margin: 0;
 }
 #roulette::after {
 	position: absolute;
