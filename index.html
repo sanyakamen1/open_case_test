@@ -67,7 +67,7 @@
             width: 100%;
             object-fit: contain;
         }
-        #arrow {
+        .arrow {
             position: absolute;
             /*bottom: 20px;  Расстояние от нижнего края экрана */
             left: 50%;
@@ -83,10 +83,11 @@
     <div class="box">
         <img id="mainImage" src="./открытие кейса.jpg" alt="Closed Case" onclick="getCash()">
         <div id="wrapper"  style="display: none">
+            <div class="arrow">&#9660;</div>
             <div id="roulette">
                 <div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div>
             </div>
-            <div id="arrow">&#9650;</div>
+            <div class="arrow">&#9650;</div>
     </div>
     </div>
     <div id="myModal" class="modal">
