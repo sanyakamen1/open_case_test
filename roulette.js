@@ -13,7 +13,7 @@ class Roulette {
         this.SIZE = 200;
         this.LENGTH = 80;
         //this.DURATION = 5000;
-        this.DURATION = 6000;
+        this.DURATION = 9000;
 
         this.progress = 0;
 
