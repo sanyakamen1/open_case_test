@@ -104,7 +104,12 @@ class Roulette {
           //     return val * 4 / 9;
           // } else {
           //     return 0.1 / (1.092 - x) - 0.09;
-          return Math.pow(0.05 / (1-val) - 0.05, 1);
+          //return Math.pow(0.05 / (1-val) - 0.05, 1);
+          if (val < 0.9) {
+            return val * 4 / 9;
+          } else {
+              return Math.pow(0.05 / (1-val) - 0.05, 1);
+          }
     }
 
     getItem(val) {
