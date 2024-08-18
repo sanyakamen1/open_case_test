@@ -97,14 +97,8 @@ class Roulette {
     }
 
     interpolator(val) {
-            // return Math.pow(Math.sin(val * Math.PI / 2), 1);
-          const x = val * (2 * Math.PI / 3); // Масштабируем val на промежуток от 0 до 2π/3
+          return Math.pow(Math.sin(val + val * 0.1), 6);
           
-          if (x <= Math.PI / 3) {
-              return Math.sin(x);
-          } else {
-              return Math.sin(x) * Math.pow(Math.sin((x - Math.PI / 3) * 1.5), 4);
-          }
     }
 
     getItem(val) {
