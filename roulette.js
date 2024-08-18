@@ -72,58 +72,34 @@ class Roulette {
     }
 
     render() {
-        // const off = this.interpolator(this.progress) * this.SIZE * this.LENGTH;
-        // const WIDTH = this.SIZE * 6;
+        const off = this.interpolator(this.progress) * this.SIZE * this.LENGTH;
+        const WIDTH = this.SIZE * 6;
 
-        // for (let i = 0; i < 6; i++) {
-        //     const item = this.items[i];
-        //     const base = (i + 1) * this.SIZE - off;
-        //     const index = -Math.floor(base / WIDTH);
-        //     const value = ((base % WIDTH) + WIDTH) % WIDTH - this.SIZE;
+        for (let i = 0; i < 6; i++) {
+            const item = this.items[i];
+            const base = (i + 1) * this.SIZE - off;
+            const index = -Math.floor(base / WIDTH);
+            const value = ((base % WIDTH) + WIDTH) % WIDTH - this.SIZE;
             
-        //     item.style.transform = `translateX(${value}px)`;
+            item.style.transform = `translateX(${value}px)`;
 
-        //     if (item.value != index) {
-        //         this.level += index - item.value;
+            if (item.value != index) {
+                this.level += index - item.value;
 
-        //         item.value = index;
-        //         item.lastChild.src = this.getItem();
+                item.value = index;
+                item.lastChild.src = this.getItem();
 
-        //         if (this.level == this.LENGTH - 3) {
-        //             item.lastChild.src = this.getItem(this.lastItem);
-        //         }
-        //     }
-        // }
-  
-      const interpolatedValue = this.interpolator(this.progress);
-      const off = interpolatedValue * interpolatedValue * this.SIZE * this.LENGTH;
-      const WIDTH = this.SIZE * 6;
-  
-      for (let i = 0; i < 6; i++) {
-          const item = this.items[i];
-          const base = (i + 1) * this.SIZE - off;
-          const index = -Math.floor(base / WIDTH);
-          const value = ((base % WIDTH) + WIDTH) % WIDTH - this.SIZE;
-          
-          item.style.transform = `translateX(${value}px)`;
-  
-          if (item.value != index) {
-              this.level += index - item.value;
-  
-              item.value = index;
-              item.lastChild.src = this.getItem();
-  
-              if (this.level == this.LENGTH - 3) {
-                  item.lastChild.src = this.getItem(this.lastItem);
-              }
-          }
-      }
+                if (this.level == this.LENGTH - 3) {
+                    item.lastChild.src = this.getItem(this.lastItem);
+                }
+            }
+        }
     }
 
     interpolator(val) {
           //return Math.pow(Math.sin(val * Math.PI / 2 + Math.sin(val * Math.pi / 2)), 2.6);
           //return Math.pow(Math.sin(2 * val + val * Math.PI / 2), 2.6);
-          return Math.pow(Math.sin( val * Math.PI / 2), 8);
+          return Math.pow(Math.sin((1 - val) * Math.PI / 2), 8);
     }
 
     getItem(val) {
