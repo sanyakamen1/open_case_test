@@ -98,7 +98,8 @@ class Roulette {
 
     interpolator(val) {
           //return Math.pow(Math.sin(val * Math.PI / 2), 2.6);
-          return (-1) * (Math.pow(Math.sin((1-val) * Math.PI / 2), 4) - 1);
+          //return (-1) * (Math.pow(Math.sin((1-val) * Math.PI / 2), 4) - 1);
+          return Math.pow(val, 0.2)
     }
 
     getItem(val) {
