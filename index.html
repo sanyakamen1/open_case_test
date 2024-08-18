@@ -67,14 +67,21 @@
             width: 100%;
             object-fit: contain;
         }
-        .arrow {
+        #up-arrow {
             position: absolute;
-            /*bottom: 20px;  Расстояние от нижнего края экрана */
             left: 50%;
             transform: translateX(-50%);
             font-size: 50px; /* Размер стрелки */
             color: #9669ff; /* Цвет стрелки */
             z-index: 1000; /* Чтобы стрелка была поверх других элементов */\
+            margin: 0px;
+        }
+        #down-arrow {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px; /* Размер стрелки */
+            color: #9669ff; /* Цвет стрелки */
             margin: 0px;
         }
     </style>
@@ -83,11 +90,11 @@
     <div class="box">
         <img id="mainImage" src="./открытие кейса.jpg" alt="Closed Case" onclick="getCash()">
         <div id="wrapper"  style="display: none">
-            <div class="arrow">&#9660;</div>
+            <div id="down-arrow">&#9660;</div>
             <div id="roulette">
                 <div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div><div class="roulette-item"><img></div>
             </div>
-            <div class="arrow">&#9650;</div>
+            <div id="up-arrow">&#9650;</div>
     </div>
     </div>
     <div id="myModal" class="modal">
