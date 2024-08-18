@@ -108,7 +108,7 @@ class Roulette {
           if (val < 0.9) {
             return val * 1.1011;
           } else {
-              return Math.pow(0.1 / (-val-0.09) + 1.092, 1);
+              return Math.pow(0.1 / (-val-0.09) + 1.09174, 1);
           }
     }
 
