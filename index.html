@@ -138,14 +138,9 @@
 
             const value_to_index = {59: 0, 65: 1, 60: 2, 89: 3, 91: 4, 119: 5};
         
-            const audioElement = document.getElementById('myAudio');
-            // Запуск воспроизведения
-            audioElement.play();
-        
             roulette.start(value_to_index[cash]);
         
             setTimeout(() => {
-                audioElement.pause();
                 roulette_div.style.display = 'none'; // Скрываем анимацию загрузки
                 showModal();
             }, 6300);
