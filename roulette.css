@@ -4,7 +4,7 @@
 #wrapper {
     display: block;
     width: calc(200px * 5);
-    margin: 200px auto 0;
+    margin-top: 200px auto 0;
 }
 #roulette {
     /*border: 3px solid #000;*/
